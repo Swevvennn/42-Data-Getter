@@ -1,16 +1,22 @@
+run:
+	uv run python3 -m src
+
 install:
 	python3 -m venv /tmp/venv
 	ln -s /tmp/venv .venv
 	UV_CACHE_DIR=/tpm/uv_cache\
 	uv sync
+	clear
+	@echo "Dependencies installed, welcome back !"
+	@echo "Thank you for trusting my work. - mosmond/swevvenn"
+
+setup: install
 	cp .env.exemple .env
 	touch .cache/data.json
 	echo "{}" > .cache/data.json
 	clear
-	@echo "Setup finished !!!"
-
-run:
-	uv run python3 -m src
+	@echo "Setup finished, welcome !!!"
+	@echo "Thank you for using this tool made with heart by swevvenn, also known as mosmond."
 
 level:
 	uv run python3 -m src level
